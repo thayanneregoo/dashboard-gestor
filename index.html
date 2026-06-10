@@ -1,80 +1,247 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="styles.css" rel="stylesheet" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="navbar">
-        <div class="navbar-header">
-          <div class="navbar-logo">
-            <!-- aqui é uma imagem  -->
-          </div>
-          <div class="navbar-title">
-            <!-- titulo -->
-          </div>
-        </div>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Solicitações — Painel Municipal de Gestão</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
 
-        <div class="navbar-menu">
-          <div class="navbar-item">
-            <div>
-              <!-- aqui logo do item  -->
-            </div>
-            <div>
-              <!-- aqui titulo do item  -->
-            </div>
-          </div>
-          <div class="navbar-item"><div>
-              <!-- aqui logo do item  -->
-            </div>
-            <div>
-              <!-- aqui titulo do item  -->
-            </div></div>
-          <div class="navbar-item"><div>
-              <!-- aqui logo do item  -->
-            </div>
-            <div>
-              <!-- aqui titulo do item  -->
-            </div></div>
-          <div class="navbar-item"><div>
-              <!-- aqui logo do item  -->
-            </div>
-            <div>
-              <!-- aqui titulo do item  -->
-            </div></div>
-          <div class="navbar-item"><div>
-              <!-- aqui logo do item  -->
-            </div>
-            <div>
-              <!-- aqui titulo do item  -->
-            </div></div>
-          <div class="navbar-item"><div>
-              <!-- aqui logo do item  -->
-            </div>
-            <div>
-              <!-- aqui titulo do item  -->
-            </div></div>
-          <div class="navbar-item"><div>
-              <!-- aqui logo do item  -->
-            </div>
-            <div>
-              <!-- aqui titulo do item  -->
-            </div></div>
-          <div class="navbar-item"><div>
-              <!-- aqui logo do item  -->
-            </div>
-            <div>
-              <!-- aqui titulo do item  -->
-            </div></div>
-        </div>
-      </div>
-      <div class="main-content">
-        <div class="header">dfsdfdsfd</div>
-        <div class="main-canvas">fdfsdfsdf</div>
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">CS</div>
+      <div class="brand-text">
+        <h1>Central de<br>Solicitações</h1>
+        <span>PLATAFORMA MUNICIPAL</span>
       </div>
     </div>
-  </body>
+    <nav class="nav">
+      <a href="#" class="active"><span class="ico">▥</span> Dashboard Geral</a>
+      <a href="#"><span class="ico">⚠</span> Denúncias</a>
+      <a href="#"><span class="ico">◉</span> Mapa de Calor</a>
+      <a href="#"><span class="ico">✦</span> IA e Análises</a>
+      <a href="#"><span class="ico">▦</span> Relatórios</a>
+      <a href="#"><span class="ico">⊞</span> Equipes</a>
+      <a href="#"><span class="ico">◔</span> Alertas</a>
+      <a href="#"><span class="ico">⚙</span> Configurações</a>
+    </nav>
+    <div class="user-card">
+      <div class="avatar">CE</div>
+      <div>
+        <div class="nome">Carlos Eduardo</div>
+        <div class="cargo">Admin Operacional</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="breadcrumb">
+        PAINEL MUNICIPAL DE GESTÃO &nbsp;/&nbsp; <strong>Secretaria de Tecnologia e Serviços Urbanos</strong> &nbsp;/&nbsp; <span class="ativo">Dashboard Geral</span>
+      </div>
+      <div class="topbar-right">
+        <span class="icon-btn">🔔</span>
+        <span class="icon-btn">⚙</span>
+        <div class="topbar-user">
+          <div style="text-align:right">
+            <div class="nome">Carlos Eduardo</div>
+            <div class="cargo">Admin Operacional</div>
+          </div>
+          <div class="avatar-sm">CE</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="content">
+
+      <!-- Cabeçalho da página -->
+      <div class="page-head">
+        <div>
+          <h2>Central de Solicitações</h2>
+          <p>Visão geral do sistema de zeladoria urbana.</p>
+        </div>
+        <button class="btn-export">⤓ Exportar Relatório</button>
+      </div>
+
+      <!-- KPIs -->
+      <section class="kpi-grid">
+        <div class="kpi azul">
+          <div class="kpi-top">
+            <span class="kpi-label">Total de Denúncias</span>
+            <span class="kpi-icon">▤</span>
+          </div>
+          <div class="kpi-value">2.450</div>
+          <div class="kpi-sub up">📈 +12% vs mês anterior</div>
+        </div>
+
+        <div class="kpi verde">
+          <div class="kpi-top">
+            <span class="kpi-label">Denúncias Abertas</span>
+            <span class="kpi-icon">🗓</span>
+          </div>
+          <div class="kpi-value">342</div>
+          <div class="kpi-sub neutro">14% do total geral</div>
+        </div>
+
+        <div class="kpi vermelho">
+          <div class="kpi-top">
+            <span class="kpi-label crit">Denúncias Críticas</span>
+            <span class="kpi-icon crit">⚠</span>
+          </div>
+          <div class="kpi-value crit">12</div>
+          <div class="kpi-sub crit">❗ Ação imediata requerida</div>
+        </div>
+
+        <div class="kpi laranja">
+          <div class="kpi-top">
+            <span class="kpi-label">Tempo Médio Resposta</span>
+            <span class="kpi-icon">⏱</span>
+          </div>
+          <div class="kpi-value">4.2h</div>
+          <div class="kpi-sub down">📉 -0.5h melhoria</div>
+        </div>
+      </section>
+
+      <!-- Grid principal -->
+      <section class="grid-main">
+
+        <!-- Coluna esquerda -->
+        <div class="col-left">
+
+          <!-- Análise detalhada -->
+          <div class="card">
+            <div class="card-head">
+              <h3>Análise Detalhada de Demandas</h3>
+              <span class="menu">⋮</span>
+            </div>
+            <div class="analise-body">
+
+              <!-- Categorias -->
+              <div>
+                <div class="mini-label">Denúncias por categoria</div>
+                <div class="barra-item">
+                  <div class="barra-top"><span class="barra-nome">Lixo</span><span class="barra-valor">1.250 <small>(85% da meta)</small></span></div>
+                  <div class="barra-track"><div class="barra-fill f1"></div></div>
+                </div>
+                <div class="barra-item">
+                  <div class="barra-top"><span class="barra-nome">Iluminação</span><span class="barra-valor">980 <small>(70% da meta)</small></span></div>
+                  <div class="barra-track"><div class="barra-fill f2"></div></div>
+                </div>
+                <div class="barra-item">
+                  <div class="barra-top"><span class="barra-nome">Saneamento</span><span class="barra-valor">840 <small>(90% da meta)</small></span></div>
+                  <div class="barra-track"><div class="barra-fill f3"></div></div>
+                </div>
+                <div class="barra-item">
+                  <div class="barra-top"><span class="barra-nome">Trânsito</span><span class="barra-valor">620 <small>(60% da meta)</small></span></div>
+                  <div class="barra-track"><div class="barra-fill f4"></div></div>
+                </div>
+              </div>
+
+              <!-- Tendência semestral -->
+              <div>
+                <div class="mini-label">Tendência semestral</div>
+                <svg viewBox="0 0 280 90" width="100%" height="90" preserveAspectRatio="none">
+                  <polyline fill="none" stroke="#1a2942" stroke-width="2.5"
+                    points="0,75 47,72 93,68 140,55 187,38 233,22 280,15"/>
+                  <polyline fill="url(#grad)" stroke="none"
+                    points="0,75 47,72 93,68 140,55 187,38 233,22 280,15 280,90 0,90"/>
+                  <defs>
+                    <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#1a2942" stop-opacity="0.15"/>
+                      <stop offset="100%" stop-color="#1a2942" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="meses"><span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span></div>
+                <div class="tendencia-box">
+                  <span class="ico">📈</span>
+                  <span>Crescimento consolidado de 18% no volume de solicitações atendidas em Junho.</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Evolução temporal -->
+          <div class="card">
+            <div class="evol-head">
+              <div>
+                <h3>Evolução Temporal (Últimos 6 meses)</h3>
+                <div class="evol-cresc">📈 +18% de crescimento no semestre</div>
+              </div>
+              <div class="toggle">
+                <button class="on">Mensal</button>
+                <button>Semanal</button>
+              </div>
+            </div>
+            <div class="chart">
+              <div class="y-axis"><span>1.500</span><span>1.200</span><span>900</span><span>600</span><span>300</span><span>0</span></div>
+              <div class="grid-lines"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="bar-col"><div class="bar b1"></div><div class="bar-label">Jan</div></div>
+              <div class="bar-col"><div class="bar b2"></div><div class="bar-label">Fev</div></div>
+              <div class="bar-col"><div class="bar b3"></div><div class="bar-label">Mar</div></div>
+              <div class="bar-col"><div class="bar b4"></div><div class="bar-label">Abr</div></div>
+              <div class="bar-col"><div class="bar b5"></div><div class="bar-label">Mai</div></div>
+              <div class="bar-col"><div class="bar b6"><div class="tooltip">1.140</div></div><div class="bar-label">Jun</div></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Coluna direita: Alertas -->
+        <div class="card alertas">
+          <div class="card-head">
+            <h3>🔔 Alertas<br>Recentes</h3>
+            <span class="badge-novos">3 Novos</span>
+          </div>
+
+          <div class="alerta">
+            <div class="dot vermelho"></div>
+            <div class="alerta-body">
+              <div class="alerta-top"><span class="alerta-titulo vermelho">Anomalia Detectada</span><span class="alerta-tempo">Há 10 min</span></div>
+              <div class="alerta-desc">Aumento de 45% em denúncias de alagamento no bairro Centro.</div>
+              <div class="alerta-tags"><span class="tag san">Saneamento</span><span class="tag urg">Urgente</span></div>
+            </div>
+          </div>
+
+          <div class="alerta">
+            <div class="dot laranja"></div>
+            <div class="alerta-body">
+              <div class="alerta-top"><span class="alerta-titulo laranja">Pico de Ocorrências</span><span class="alerta-tempo">Há 2 horas</span></div>
+              <div class="alerta-desc">Concentração anormal de chamados sobre iluminação pública na Zona Norte.</div>
+            </div>
+          </div>
+
+          <div class="alerta">
+            <div class="dot verde"></div>
+            <div class="alerta-body">
+              <div class="alerta-top"><span class="alerta-titulo verde">Meta Atingida</span><span class="alerta-tempo">Ontem</span></div>
+              <div class="alerta-desc">Tempo médio de resposta global caiu para abaixo de 5 horas nesta semana.</div>
+            </div>
+          </div>
+
+          <div class="alerta">
+            <div class="dot cinza"></div>
+            <div class="alerta-body">
+              <div class="alerta-top"><span class="alerta-titulo">Atualização de Sistema</span><span class="alerta-tempo">2 dias atrás</span></div>
+              <div class="alerta-desc">Novos filtros adicionados ao Mapa Inteligente.</div>
+            </div>
+          </div>
+
+          <span class="ver-todos">Ver todos os alertas</span>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+</div>
+</body>
 </html>
