@@ -1,53 +1,54 @@
-/*
-  Central de Solicitações — Folha de estilo
-  Organização por seções (ver README.md)
-*/
+/* Central de Solicitações — folha de estilo. Comentários ao lado de cada bloco. */
 
-/* ============================================================
-   TOKENS DE DESIGN
-   ============================================================ */
 :root {
-  --azul-escuro: #1a2942;      /* sidebar e headers */
-  --azul-medio: #2d4263;
-  --azul-claro: #4a6fa5;
-  --verde: #1ba672;            /* indicadores positivos */
-  --verde-claro: #e6f7f0;
-  --vermelho: #e63946;         /* alertas críticos */
-  --vermelho-claro: #fdeaec;
-  --laranja: #f4a020;          /* avisos */
-  --cinza-bg: #f5f6f8;         /* fundo geral */
-  --cinza-card: #ffffff;
-  --cinza-borda: #e8eaed;
-  --cinza-texto: #6b7280;
-  --cinza-texto-claro: #9ca3af;
-  --texto-escuro: #1f2937;
-  --raio: 12px;
-  --sombra: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --sombra-card: 0 2px 8px rgba(0,0,0,0.05);
+  --azul-escuro: #1a2942;                              /* cor da sidebar e dos títulos */
+  --azul-medio: #2d4263;                               /* tom intermediário de apoio */
+  --azul-claro: #4a6fa5;                               /* item de menu ativo e destaques */
+  --verde: #1ba672;                                    /* tudo que é positivo (metas, melhorias) */
+  --verde-claro: #e6f7f0;                              /* fundo suave do verde */
+  --vermelho: #e63946;                                 /* alertas críticos e urgência */
+  --vermelho-claro: #fdeaec;                           /* fundo suave do vermelho */
+  --laranja: #f4a020;                                  /* avisos de atenção */
+  --cinza-bg: #f5f6f8;                                 /* fundo geral da página */
+  --cinza-card: #ffffff;                               /* fundo dos cartões */
+  --cinza-borda: #e8eaed;                              /* linhas divisórias */
+  --cinza-texto: #6b7280;                              /* texto secundário */
+  --cinza-texto-claro: #9ca3af;                        /* texto bem apagado (legendas) */
+  --texto-escuro: #1f2937;                             /* texto principal */
+  --raio: 12px;                                        /* arredondamento padrão dos cartões */
+  --sombra: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);  /* sombra leve de botões */
+  --sombra-card: 0 2px 8px rgba(0,0,0,0.05);           /* sombra um pouco maior dos cartões */
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;                                           /* zera espaçamentos do navegador */
+  padding: 0;
+  box-sizing: border-box;                              /* largura já inclui borda e padding */
+}
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;  /* fonte do sistema */
   background: var(--cinza-bg);
   color: var(--texto-escuro);
   font-size: 14px;
   line-height: 1.4;
 }
 
-.app { display: flex; min-height: 100vh; }
+.app {
+  display: flex;                                       /* sidebar à esquerda, conteúdo à direita */
+  min-height: 100vh;                                   /* ocupa a altura toda da tela */
+}
 
-/* ============================================================
-   SIDEBAR
-   ============================================================ */
+
+/* Sidebar — menu lateral fixo */
+
 .sidebar {
-  width: 230px;
+  width: 230px;                                        /* largura travada da barra */
   background: var(--azul-escuro);
   color: #cbd5e1;
   display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
+  flex-direction: column;                              /* marca em cima, usuário embaixo */
+  flex-shrink: 0;                                      /* nunca encolhe quando falta espaço */
 }
 
 .brand {
@@ -55,140 +56,317 @@ body {
   align-items: center;
   gap: 12px;
   padding: 22px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);     /* separa o logo do menu */
 }
+
 .brand-logo {
-  width: 38px; height: 38px;
+  width: 38px;
+  height: 38px;
   background: var(--verde);
   border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; color: #fff; font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;                             /* centraliza as iniciais "CS" */
+  font-weight: 700;
+  color: #fff;
+  font-size: 15px;
   flex-shrink: 0;
 }
-.brand-text h1 { font-size: 14px; color: #fff; font-weight: 600; line-height: 1.2; }
-.brand-text span { font-size: 9.5px; color: var(--cinza-texto-claro); letter-spacing: 0.5px; }
 
-.nav { flex: 1; padding: 14px 12px; }
+.brand-text h1 {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.brand-text span {
+  font-size: 9.5px;
+  color: var(--cinza-texto-claro);
+  letter-spacing: 0.5px;                               /* respiro entre as letras do rótulo */
+}
+
+.nav {
+  flex: 1;                                             /* empurra o cartão de usuário pro rodapé */
+  padding: 14px 12px;
+}
+
 .nav a {
-  display: flex; align-items: center; gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;                                           /* distância entre ícone e texto */
   padding: 11px 14px;
   color: #cbd5e1;
   text-decoration: none;
   border-radius: 8px;
   font-size: 13.5px;
   margin-bottom: 3px;
-  transition: background .15s, color .15s;
+  transition: background .15s, color .15s;             /* leve animação no hover */
 }
-.nav a:hover { background: rgba(255,255,255,0.06); color: #fff; }
-.nav a.active { background: var(--azul-claro); color: #fff; }
-.nav a .ico { width: 18px; text-align: center; opacity: .9; }
+
+.nav a:hover {
+  background: rgba(255,255,255,0.06);                  /* destaque ao passar o mouse */
+  color: #fff;
+}
+
+.nav a.active {
+  background: var(--azul-claro);                       /* item da página atual */
+  color: #fff;
+}
+
+.nav a .ico {
+  width: 18px;
+  text-align: center;                                  /* alinha todos os ícones na mesma coluna */
+  opacity: .9;
+}
 
 .user-card {
-  display: flex; align-items: center; gap: 11px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
   padding: 16px 18px;
-  border-top: 1px solid rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(255,255,255,0.07);        /* separa o usuário do menu */
 }
-.avatar {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: linear-gradient(135deg, #4a6fa5, #2d4263);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 600; font-size: 13px; flex-shrink: 0;
-}
-.user-card .nome { font-size: 13px; color: #fff; font-weight: 500; }
-.user-card .cargo { font-size: 11px; color: var(--cinza-texto-claro); }
 
-/* ============================================================
-   ÁREA PRINCIPAL
-   ============================================================ */
-.main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;                                  /* círculo */
+  background: linear-gradient(135deg, #4a6fa5, #2d4263);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.user-card .nome {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.user-card .cargo {
+  font-size: 11px;
+  color: var(--cinza-texto-claro);
+}
+
+
+/* Área principal — topo + conteúdo */
+
+.main {
+  flex: 1;                                             /* ocupa todo o espaço que sobra da sidebar */
+  display: flex;
+  flex-direction: column;
+  min-width: 0;                                        /* deixa o conteúdo encolher sem estourar */
+}
 
 .topbar {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;                      /* breadcrumb à esquerda, usuário à direita */
   background: #fff;
   padding: 16px 28px;
   border-bottom: 1px solid var(--cinza-borda);
 }
-.breadcrumb { font-size: 12px; color: var(--cinza-texto); letter-spacing: .3px; }
-.breadcrumb strong { color: var(--texto-escuro); font-weight: 600; }
-.breadcrumb .ativo { color: var(--azul-claro); }
-.topbar-right { display: flex; align-items: center; gap: 18px; }
-.topbar-right .icon-btn { color: var(--cinza-texto); cursor: pointer; font-size: 16px; }
-.topbar-user { display: flex; align-items: center; gap: 9px; }
-.topbar-user .nome { font-size: 13px; font-weight: 600; }
-.topbar-user .cargo { font-size: 11px; color: var(--cinza-texto); }
-.avatar-sm { width: 34px; height: 34px; border-radius: 50%;
-  background: linear-gradient(135deg,#4a6fa5,#2d4263);
-  display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px; font-weight:600; }
 
-.content { padding: 26px 28px; }
+.breadcrumb {
+  font-size: 12px;
+  color: var(--cinza-texto);
+  letter-spacing: .3px;
+}
+
+.breadcrumb strong {
+  color: var(--texto-escuro);                          /* destaca a secretaria atual */
+  font-weight: 600;
+}
+
+.breadcrumb .ativo {
+  color: var(--azul-claro);                            /* página em que estamos agora */
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.topbar-right .icon-btn {
+  color: var(--cinza-texto);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.topbar-user .nome {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.topbar-user .cargo {
+  font-size: 11px;
+  color: var(--cinza-texto);
+}
+
+.avatar-sm {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#4a6fa5,#2d4263);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.content {
+  padding: 26px 28px;                                  /* respiro interno da área de conteúdo */
+}
 
 .page-head {
-  display: flex; align-items: flex-start; justify-content: space-between;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;                      /* título à esquerda, botão exportar à direita */
   margin-bottom: 22px;
 }
-.page-head h2 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-.page-head p { color: var(--cinza-texto); font-size: 13px; }
+
+.page-head h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.page-head p {
+  color: var(--cinza-texto);
+  font-size: 13px;
+}
+
 .btn-export {
-  display: flex; align-items: center; gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: #fff;
   border: 1px solid var(--cinza-borda);
   padding: 9px 16px;
   border-radius: 8px;
-  font-size: 13px; color: var(--texto-escuro);
-  cursor: pointer; font-weight: 500;
+  font-size: 13px;
+  color: var(--texto-escuro);
+  cursor: pointer;
+  font-weight: 500;
   box-shadow: var(--sombra);
 }
-.btn-export:hover { background: var(--cinza-bg); }
 
-/* ============================================================
-   KPI CARDS
-   ============================================================ */
+.btn-export:hover {
+  background: var(--cinza-bg);                          /* fundo cinza ao passar o mouse */
+}
+
+
+/* Cartões de indicadores (KPIs) */
+
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);               /* quatro cartões lado a lado */
   gap: 18px;
   margin-bottom: 22px;
 }
+
 .kpi {
   background: var(--cinza-card);
   border-radius: var(--raio);
   padding: 20px;
   box-shadow: var(--sombra-card);
-  border-top: 3px solid transparent;
+  border-top: 3px solid transparent;                   /* faixa colorida no topo (cor vem da variante) */
   position: relative;
 }
-.kpi.azul   { border-top-color: var(--azul-claro); }
-.kpi.verde  { border-top-color: var(--verde); }
-.kpi.vermelho { border-top-color: var(--vermelho); }
-.kpi.laranja  { border-top-color: var(--azul-claro); }
 
-.kpi-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
-.kpi-label { font-size: 11px; color: var(--cinza-texto); letter-spacing: .6px; font-weight: 600; text-transform: uppercase; }
-.kpi-label.crit { color: var(--vermelho); }
-.kpi-icon {
-  width: 34px; height: 34px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center; font-size: 16px;
-  background: var(--cinza-bg); color: var(--azul-medio);
+.kpi.azul     { border-top-color: var(--azul-claro); }     /* variante: total de denúncias */
+.kpi.verde    { border-top-color: var(--verde); }          /* variante: denúncias abertas */
+.kpi.vermelho { border-top-color: var(--vermelho); }       /* variante: denúncias críticas */
+.kpi.laranja  { border-top-color: var(--azul-claro); }     /* variante: tempo de resposta */
+
+.kpi-top {
+  display: flex;
+  justify-content: space-between;                      /* rótulo à esquerda, ícone à direita */
+  align-items: flex-start;
+  margin-bottom: 14px;
 }
-.kpi-icon.crit { background: var(--vermelho-claro); color: var(--vermelho); }
-.kpi-value { font-size: 34px; font-weight: 700; line-height: 1; margin-bottom: 9px; }
-.kpi-value.crit { color: var(--vermelho); }
-.kpi-sub { font-size: 12px; display: flex; align-items: center; gap: 5px; }
-.kpi-sub.up { color: var(--verde); }
-.kpi-sub.neutro { color: var(--cinza-texto); }
-.kpi-sub.down { color: var(--verde); }
-.kpi-sub.crit { color: var(--vermelho); }
 
-/* ============================================================
-   GRID PRINCIPAL (análise + alertas)
-   ============================================================ */
+.kpi-label {
+  font-size: 11px;
+  color: var(--cinza-texto);
+  letter-spacing: .6px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.kpi-label.crit {
+  color: var(--vermelho);                              /* rótulo do cartão crítico em vermelho */
+}
+
+.kpi-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background: var(--cinza-bg);
+  color: var(--azul-medio);
+}
+
+.kpi-icon.crit {
+  background: var(--vermelho-claro);                   /* ícone do cartão crítico em fundo vermelho */
+  color: var(--vermelho);
+}
+
+.kpi-value {
+  font-size: 34px;
+  font-weight: 700;                                    /* o número grande, protagonista do cartão */
+  line-height: 1;
+  margin-bottom: 9px;
+}
+
+.kpi-value.crit {
+  color: var(--vermelho);
+}
+
+.kpi-sub {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;                                            /* espaço entre o ícone de tendência e o texto */
+}
+
+.kpi-sub.up     { color: var(--verde); }               /* crescimento positivo */
+.kpi-sub.neutro { color: var(--cinza-texto); }         /* informação neutra */
+.kpi-sub.down   { color: var(--verde); }               /* queda que é boa (tempo de resposta menor) */
+.kpi-sub.crit   { color: var(--vermelho); }            /* aviso de ação imediata */
+
+
+/* Grid principal — gráficos à esquerda, alertas à direita */
+
 .grid-main {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 320px;                    /* coluna flexível + coluna fixa de alertas */
   gap: 18px;
-  align-items: start;
+  align-items: start;                                  /* cada coluna cresce de forma independente */
 }
-.col-left { display: flex; flex-direction: column; gap: 18px; }
+
+.col-left {
+  display: flex;
+  flex-direction: column;                              /* empilha análise e evolução temporal */
+  gap: 18px;
+}
 
 .card {
   background: var(--cinza-card);
@@ -196,129 +374,374 @@ body {
   box-shadow: var(--sombra-card);
   padding: 22px;
 }
-.card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.card-head h3 { font-size: 17px; font-weight: 700; }
-.card-head .menu { color: var(--cinza-texto-claro); cursor: pointer; font-size: 18px; }
 
-/* Análise: duas colunas internas */
-.analise-body { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-.mini-label { font-size: 11px; color: var(--cinza-texto); letter-spacing: .5px; font-weight: 600; text-transform: uppercase; margin-bottom: 16px; }
+.card-head {
+  display: flex;
+  justify-content: space-between;                      /* título à esquerda, menu "⋮" à direita */
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-/* Barras por categoria */
-.barra-item { margin-bottom: 16px; }
-.barra-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-.barra-nome { font-size: 13px; font-weight: 500; }
-.barra-valor { font-size: 13px; font-weight: 700; }
-.barra-valor small { color: var(--cinza-texto-claro); font-weight: 400; font-size: 11px; margin-left: 4px; }
-.barra-track { height: 7px; background: var(--cinza-borda); border-radius: 4px; overflow: hidden; }
-.barra-fill { height: 100%; border-radius: 4px; }
-.barra-fill.f1 { width: 85%; background: var(--azul-escuro); }
-.barra-fill.f2 { width: 70%; background: var(--azul-claro); }
-.barra-fill.f3 { width: 90%; background: var(--verde); }
-.barra-fill.f4 { width: 60%; background: var(--azul-medio); }
+.card-head h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
 
-/* Tendência semestral (sparkline) */
+.card-head .menu {
+  color: var(--cinza-texto-claro);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.analise-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;                      /* categorias à esquerda, tendência à direita */
+  gap: 30px;
+}
+
+.mini-label {
+  font-size: 11px;
+  color: var(--cinza-texto);
+  letter-spacing: .5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.barra-item {
+  margin-bottom: 16px;                                 /* espaço entre cada categoria */
+}
+
+.barra-top {
+  display: flex;
+  justify-content: space-between;                      /* nome à esquerda, valor à direita */
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.barra-nome {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.barra-valor {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.barra-valor small {
+  color: var(--cinza-texto-claro);                     /* "(85% da meta)" mais apagado */
+  font-weight: 400;
+  font-size: 11px;
+  margin-left: 4px;
+}
+
+.barra-track {
+  height: 7px;
+  background: var(--cinza-borda);                      /* trilho cinza de fundo */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.barra-fill {
+  height: 100%;
+  border-radius: 4px;                                  /* preenchimento colorido da barra */
+}
+
+.barra-fill.f1 { width: 85%; background: var(--azul-escuro); }   /* Lixo */
+.barra-fill.f2 { width: 70%; background: var(--azul-claro); }    /* Iluminação */
+.barra-fill.f3 { width: 90%; background: var(--verde); }         /* Saneamento */
+.barra-fill.f4 { width: 60%; background: var(--azul-medio); }    /* Trânsito */
+
 .tendencia-box {
   background: var(--cinza-bg);
   border-radius: 8px;
   padding: 14px;
   margin-top: 8px;
-  display: flex; gap: 10px; align-items: flex-start;
-  font-size: 12px; color: var(--cinza-texto);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;                             /* ícone alinhado ao topo do texto */
+  font-size: 12px;
+  color: var(--cinza-texto);
 }
-.tendencia-box .ico { color: var(--verde); font-size: 14px; }
-.meses { display: flex; justify-content: space-between; font-size: 10px; color: var(--cinza-texto-claro); margin-top: 8px; padding: 0 2px; }
 
-/* ============================================================
-   GRÁFICO DE BARRAS — Evolução temporal
-   ============================================================ */
-.evol-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
-.evol-head h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
-.evol-cresc { font-size: 12px; color: var(--verde); display: flex; align-items: center; gap: 5px; }
-.toggle { display: flex; background: var(--cinza-bg); border-radius: 7px; padding: 3px; gap: 2px; }
-.toggle button { border: none; background: transparent; padding: 6px 14px; border-radius: 5px; font-size: 12px; cursor: pointer; color: var(--cinza-texto); }
-.toggle button.on { background: #fff; color: var(--texto-escuro); font-weight: 600; box-shadow: var(--sombra); }
+.tendencia-box .ico {
+  color: var(--verde);
+  font-size: 14px;
+}
+
+.meses {
+  display: flex;
+  justify-content: space-between;                      /* distribui os meses sob o gráfico */
+  font-size: 10px;
+  color: var(--cinza-texto-claro);
+  margin-top: 8px;
+  padding: 0 2px;
+}
+
+
+/* Gráfico de barras — evolução temporal (feito só com CSS) */
+
+.evol-head {
+  display: flex;
+  justify-content: space-between;                      /* título à esquerda, toggle à direita */
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.evol-head h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.evol-cresc {
+  font-size: 12px;
+  color: var(--verde);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.toggle {
+  display: flex;
+  background: var(--cinza-bg);                          /* fundo do seletor Mensal/Semanal */
+  border-radius: 7px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.toggle button {
+  border: none;
+  background: transparent;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--cinza-texto);
+}
+
+.toggle button.on {
+  background: #fff;                                     /* opção selecionada ganha fundo branco */
+  color: var(--texto-escuro);
+  font-weight: 600;
+  box-shadow: var(--sombra);
+}
 
 .chart {
   margin-top: 26px;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-end;                               /* barras crescem de baixo pra cima */
   gap: 4px;
   height: 210px;
-  position: relative;
-  padding-left: 36px;
-  padding-bottom: 24px;
+  position: relative;                                  /* referência para eixo e grade absolutos */
+  padding-left: 36px;                                  /* abre espaço para os números do eixo Y */
+  padding-bottom: 24px;                                /* abre espaço para os meses */
 }
-.y-axis { position: absolute; left: 0; top: 0; bottom: 24px; display: flex; flex-direction: column; justify-content: space-between; font-size: 10px; color: var(--cinza-texto-claro); }
-.grid-lines { position: absolute; left: 36px; right: 0; top: 0; bottom: 24px; display: flex; flex-direction: column; justify-content: space-between; }
-.grid-lines span { border-top: 1px solid var(--cinza-borda); height: 0; }
-.bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; position: relative; z-index: 2; height: 100%; }
+
+.y-axis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;                      /* distribui 1.500 → 0 de cima a baixo */
+  font-size: 10px;
+  color: var(--cinza-texto-claro);
+}
+
+.grid-lines {
+  position: absolute;
+  left: 36px;
+  right: 0;
+  top: 0;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;                      /* linhas horizontais de apoio */
+}
+
+.grid-lines span {
+  border-top: 1px solid var(--cinza-borda);
+  height: 0;
+}
+
+.bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;                           /* prende a barra na base da coluna */
+  position: relative;
+  z-index: 2;                                          /* barras ficam acima das linhas de grade */
+  height: 100%;
+}
+
 .bar {
   width: 70%;
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;                          /* canto arredondado só no topo */
   background: linear-gradient(180deg, #2d4263, #1a2942);
   position: relative;
 }
-.bar.b1 { height: 38%; background: linear-gradient(180deg,#9fb3c8,#7c93ab); }
-.bar.b2 { height: 42%; background: linear-gradient(180deg,#7c93ab,#5d7795); }
-.bar.b3 { height: 50%; background: linear-gradient(180deg,#5d7795,#42648a); }
-.bar.b4 { height: 64%; background: linear-gradient(180deg,#42648a,#2d4d75); }
-.bar.b5 { height: 80%; background: linear-gradient(180deg,#2d4d75,#1f3a5c); }
-.bar.b6 { height: 96%; background: linear-gradient(180deg,#243b5c,#16243d); }
-.bar-label { position: absolute; bottom: -22px; font-size: 11px; color: var(--cinza-texto); }
-.tooltip {
-  position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
-  background: var(--azul-escuro); color: #fff; font-size: 11px; font-weight: 600;
-  padding: 4px 10px; border-radius: 6px; white-space: nowrap;
-}
-.tooltip::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
-  border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid var(--azul-escuro); }
 
-/* ============================================================
-   ALERTAS RECENTES
-   ============================================================ */
-.alertas .card-head h3 { display: flex; align-items: center; gap: 8px; line-height: 1.2; }
-.badge-novos { background: var(--vermelho-claro); color: var(--vermelho); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; }
+.bar.b1 { height: 38%; background: linear-gradient(180deg,#9fb3c8,#7c93ab); }  /* Jan (menor) */
+.bar.b2 { height: 42%; background: linear-gradient(180deg,#7c93ab,#5d7795); }  /* Fev */
+.bar.b3 { height: 50%; background: linear-gradient(180deg,#5d7795,#42648a); }  /* Mar */
+.bar.b4 { height: 64%; background: linear-gradient(180deg,#42648a,#2d4d75); }  /* Abr */
+.bar.b5 { height: 80%; background: linear-gradient(180deg,#2d4d75,#1f3a5c); }  /* Mai */
+.bar.b6 { height: 96%; background: linear-gradient(180deg,#243b5c,#16243d); }  /* Jun (maior) */
+
+.bar-label {
+  position: absolute;
+  bottom: -22px;                                       /* nome do mês logo abaixo da barra */
+  font-size: 11px;
+  color: var(--cinza-texto);
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px;                                          /* balão flutuando acima da barra */
+  left: 50%;
+  transform: translateX(-50%);                         /* centraliza o balão na barra */
+  background: var(--azul-escuro);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);                         /* setinha do balão apontando pra baixo */
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--azul-escuro);
+}
+
+
+/* Alertas recentes — coluna da direita */
+
+.alertas .card-head h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.badge-novos {
+  background: var(--vermelho-claro);
+  color: var(--vermelho);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;                                 /* pílula "3 Novos" */
+}
 
 .alerta {
-  display: flex; gap: 11px;
+  display: flex;
+  gap: 11px;
   padding: 15px 0;
-  border-bottom: 1px solid var(--cinza-borda);
+  border-bottom: 1px solid var(--cinza-borda);         /* divide um alerta do outro */
 }
-.alerta:last-of-type { border-bottom: none; }
-.dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-.dot.vermelho { background: var(--vermelho); }
-.dot.laranja { background: var(--laranja); }
-.dot.verde { background: var(--verde); }
-.dot.cinza { background: var(--cinza-texto-claro); }
-.alerta-body { flex: 1; }
-.alerta-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
-.alerta-titulo { font-size: 13px; font-weight: 600; }
-.alerta-titulo.vermelho { color: var(--vermelho); }
-.alerta-titulo.laranja { color: var(--laranja); }
-.alerta-titulo.verde { color: var(--verde); }
-.alerta-tempo { font-size: 11px; color: var(--cinza-texto-claro); white-space: nowrap; margin-left: 8px; }
-.alerta-desc { font-size: 12px; color: var(--cinza-texto); line-height: 1.45; }
-.alerta-tags { display: flex; gap: 6px; margin-top: 8px; }
-.tag { font-size: 10px; padding: 3px 9px; border-radius: 5px; font-weight: 500; }
-.tag.san { background: var(--vermelho-claro); color: var(--vermelho); }
-.tag.urg { background: #fdeaec; color: var(--vermelho); }
-.ver-todos {
-  display: block; text-align: center; padding: 14px 0 2px;
-  font-size: 13px; color: var(--cinza-texto); font-weight: 500;
-  border-top: 1px solid var(--cinza-borda); margin-top: 6px; cursor: pointer;
-}
-.ver-todos:hover { color: var(--azul-claro); }
 
-/* ============================================================
-   RESPONSIVO
-   ============================================================ */
-@media (max-width: 1100px) {
-  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-  .grid-main { grid-template-columns: 1fr; }
-  .analise-body { grid-template-columns: 1fr; }
+.alerta:last-of-type {
+  border-bottom: none;                                 /* tira a linha do último alerta */
 }
-@media (max-width: 720px) {
-  .sidebar { display: none; }
-  .kpi-grid { grid-template-columns: 1fr; }
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;                                     /* alinha a bolinha com a 1ª linha de texto */
+  flex-shrink: 0;
+}
+
+.dot.vermelho { background: var(--vermelho); }         /* anomalia / urgente */
+.dot.laranja  { background: var(--laranja); }          /* pico de ocorrências */
+.dot.verde    { background: var(--verde); }            /* meta atingida */
+.dot.cinza    { background: var(--cinza-texto-claro); }/* atualização de sistema */
+
+.alerta-body {
+  flex: 1;
+}
+
+.alerta-top {
+  display: flex;
+  justify-content: space-between;                      /* título à esquerda, "há 10 min" à direita */
+  align-items: baseline;
+  margin-bottom: 3px;
+}
+
+.alerta-titulo {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.alerta-titulo.vermelho { color: var(--vermelho); }
+.alerta-titulo.laranja  { color: var(--laranja); }
+.alerta-titulo.verde    { color: var(--verde); }
+
+.alerta-tempo {
+  font-size: 11px;
+  color: var(--cinza-texto-claro);
+  white-space: nowrap;                                 /* não quebra "Há 2 horas" em duas linhas */
+  margin-left: 8px;
+}
+
+.alerta-desc {
+  font-size: 12px;
+  color: var(--cinza-texto);
+  line-height: 1.45;
+}
+
+.alerta-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tag {
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.tag.san { background: var(--vermelho-claro); color: var(--vermelho); }  /* etiqueta Saneamento */
+.tag.urg { background: #fdeaec; color: var(--vermelho); }                /* etiqueta Urgente */
+
+.ver-todos {
+  display: block;
+  text-align: center;
+  padding: 14px 0 2px;
+  font-size: 13px;
+  color: var(--cinza-texto);
+  font-weight: 500;
+  border-top: 1px solid var(--cinza-borda);            /* separa o link do último alerta */
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.ver-todos:hover {
+  color: var(--azul-claro);
+}
+
+
+/* Responsivo — adapta a telas menores */
+
+@media (max-width: 1100px) {                           /* tablets / janelas estreitas */
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); } /* KPIs passam a 2 por linha */
+  .grid-main { grid-template-columns: 1fr; }           /* alertas vão para baixo dos gráficos */
+  .analise-body { grid-template-columns: 1fr; }        /* categorias e tendência empilham */
+}
+
+@media (max-width: 720px) {                            /* celulares */
+  .sidebar { display: none; }                          /* esconde o menu lateral */
+  .kpi-grid { grid-template-columns: 1fr; }            /* um KPI por linha */
 }
