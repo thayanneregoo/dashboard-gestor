@@ -1,72 +1,212 @@
-# Central de Solicitações — Dashboard
+# Central de Solicitações — Painel Municipal de Gestão
 
-Painel de gestão municipal de zeladoria urbana, em HTML e CSS puro (sem frameworks nem dependências externas).
+## 1. Introdução
 
-## Estrutura de arquivos
+A crescente digitalização dos serviços públicos tem impulsionado a adoção de plataformas de monitoramento e gestão capazes de auxiliar órgãos governamentais na tomada de decisões baseadas em dados. Nesse contexto, o presente projeto propõe o desenvolvimento de uma interface web denominada **Central de Solicitações**, concebida para representar um painel municipal de gestão voltado ao acompanhamento de demandas urbanas, denúncias e indicadores operacionais.
 
-```
-.
-├── index.html        # marcação da página
+O sistema foi desenvolvido utilizando tecnologias fundamentais da Web, especificamente **HTML5** e **CSS3**, priorizando uma arquitetura visual moderna, intuitiva e responsiva. O painel oferece uma visão consolidada das informações operacionais, permitindo a visualização de métricas, alertas, tendências e indicadores estratégicos relacionados à zeladoria urbana.
+
+---
+
+## 2. Objetivos
+
+### 2.1 Objetivo Geral
+
+Desenvolver uma interface administrativa para monitoramento e acompanhamento de solicitações municipais, fornecendo informações gerenciais por meio de indicadores visuais e painéis analíticos.
+
+### 2.2 Objetivos Específicos
+
+* Implementar uma estrutura de navegação intuitiva para usuários administrativos;
+* Exibir indicadores-chave de desempenho (KPIs) relacionados às solicitações urbanas;
+* Apresentar análises visuais de categorias de denúncias;
+* Demonstrar tendências temporais por meio de gráficos;
+* Disponibilizar um sistema de alertas operacionais para apoio à tomada de decisão;
+* Aplicar conceitos de design responsivo para diferentes tamanhos de tela.
+
+---
+
+## 3. Tecnologias Utilizadas
+
+| Tecnologia | Finalidade                                   |
+| ---------- | -------------------------------------------- |
+| HTML5      | Estruturação semântica da interface          |
+| CSS3       | Estilização e responsividade                 |
+| SVG        | Representação gráfica da tendência semestral |
+| Flexbox    | Organização dos componentes                  |
+| CSS Grid   | Estruturação dos layouts principais          |
+
+---
+
+## 4. Arquitetura da Interface
+
+A aplicação está organizada em três componentes principais:
+
+### 4.1 Sidebar (Menu Lateral)
+
+Responsável pela navegação principal do sistema, contendo:
+
+* Dashboard Geral;
+* Denúncias;
+* Mapa de Calor;
+* IA e Análises;
+* Relatórios;
+* Equipes;
+* Alertas;
+* Configurações.
+
+Além disso, apresenta informações resumidas do usuário autenticado.
+
+### 4.2 Topbar
+
+Localizada na parte superior da aplicação, fornece:
+
+* Navegação hierárquica (breadcrumb);
+* Acesso a notificações;
+* Configurações do sistema;
+* Informações do usuário logado.
+
+### 4.3 Área de Conteúdo
+
+Concentra as funcionalidades analíticas do painel, incluindo:
+
+* Indicadores operacionais;
+* Relatórios visuais;
+* Tendências temporais;
+* Sistema de alertas.
+
+---
+
+## 5. Indicadores de Desempenho (KPIs)
+
+O painel apresenta quatro métricas principais:
+
+### Total de Denúncias
+
+Representa o volume total de registros cadastrados no sistema.
+
+### Denúncias Abertas
+
+Indica a quantidade de ocorrências ainda pendentes de resolução.
+
+### Denúncias Críticas
+
+Apresenta ocorrências classificadas como prioritárias, exigindo intervenção imediata.
+
+### Tempo Médio de Resposta
+
+Mede a eficiência operacional dos serviços públicos quanto ao atendimento das solicitações.
+
+---
+
+## 6. Módulo de Análise de Demandas
+
+O módulo de análise detalhada permite visualizar a distribuição das solicitações por categoria:
+
+* Lixo;
+* Iluminação Pública;
+* Saneamento;
+* Trânsito.
+
+Cada categoria possui indicadores percentuais de desempenho em relação às metas previamente estabelecidas.
+
+---
+
+## 7. Visualização de Tendências
+
+O sistema apresenta duas formas de análise temporal:
+
+### Tendência Semestral
+
+Implementada por meio de um gráfico SVG, demonstra a evolução do volume de solicitações ao longo dos meses.
+
+### Evolução Temporal
+
+Representada por gráfico de barras, possibilita a comparação entre períodos distintos, evidenciando o crescimento de atendimentos e registros.
+
+---
+
+## 8. Sistema de Alertas
+
+O módulo de alertas foi projetado para destacar eventos relevantes detectados pelo sistema.
+
+Os alertas são classificados em diferentes níveis de criticidade:
+
+| Tipo        | Cor      |
+| ----------- | -------- |
+| Crítico     | Vermelho |
+| Atenção     | Laranja  |
+| Sucesso     | Verde    |
+| Informativo | Cinza    |
+
+Exemplos de eventos monitorados:
+
+* Anomalias operacionais;
+* Picos de ocorrências;
+* Metas alcançadas;
+* Atualizações do sistema.
+
+---
+
+## 9. Design Responsivo
+
+O projeto adota técnicas modernas de responsividade para garantir a adaptação da interface em diferentes dispositivos.
+
+### Estratégias Utilizadas
+
+* CSS Grid para distribuição dos componentes;
+* Flexbox para alinhamento interno;
+* Media Queries para adaptação em telas menores;
+* Ocultação da sidebar em dispositivos móveis.
+
+---
+
+## 10. Organização dos Arquivos
+
+Estrutura recomendada do projeto:
+
+```text
+projeto/
+│
+├── index.html
+│
 ├── css/
-│   └── style.css     # todo o estilo, dividido em seções
+│   └── style.css
+│
 └── README.md
 ```
 
-O HTML carrega o estilo por um único link no `<head>`:
+---
 
-```html
-<link rel="stylesheet" href="css/style.css">
-```
+## 11. Considerações sobre Usabilidade
 
-Para rodar, basta abrir o `index.html` no navegador. Mantenha a pasta `css/` ao lado do HTML.
+A interface foi desenvolvida seguindo princípios básicos de usabilidade e experiência do usuário:
 
-## Como o CSS está organizado
+* Hierarquia visual clara;
+* Contraste adequado de cores;
+* Navegação simplificada;
+* Organização lógica das informações;
+* Feedback visual por meio de indicadores e alertas.
 
-O `style.css` segue uma ordem do geral para o específico. Cada seção é separada por um comentário em bloco (`/* ===== NOME ===== */`), então dá pra navegar com Ctrl+F pelo nome da seção.
+---
 
-| # | Seção | O que controla |
-|---|-------|----------------|
-| 1 | **Tokens de design** (`:root`) | Variáveis de cor, raio de borda e sombra. É o ponto central de customização. |
-| 2 | **Reset** | `* { margin/padding/box-sizing }` e estilo base do `body`. |
-| 3 | **Sidebar** | Menu lateral fixo: marca, navegação e cartão de usuário. |
-| 4 | **Área principal** | Topbar, breadcrumb e wrapper do conteúdo. |
-| 5 | **KPI cards** | Os 4 cartões de indicadores do topo. |
-| 6 | **Grid principal** | A divisão em duas colunas (gráficos + alertas). |
-| 7 | **Gráfico de barras** | Evolução temporal feita em CSS puro (eixo, grade, colunas, tooltip). |
-| 8 | **Alertas recentes** | Lista lateral com bolinha de severidade e tags. |
-| 9 | **Responsivo** | `@media` para tablet e celular. |
+## 12. Resultados Esperados
 
-## Sistema de tokens
+Espera-se que a plataforma possibilite:
 
-Toda cor e medida repetida vive como variável CSS no `:root`. Para reestilizar, edite num lugar só:
+* Melhor monitoramento das demandas municipais;
+* Maior eficiência na gestão urbana;
+* Apoio à tomada de decisão baseada em dados;
+* Redução do tempo médio de resposta às solicitações;
+* Identificação precoce de problemas operacionais.
 
-```css
-:root {
-  --azul-escuro: #1a2942;   /* sidebar e headers */
-  --verde: #1ba672;         /* indicadores positivos */
-  --vermelho: #e63946;      /* alertas críticos */
-  --raio: 12px;             /* arredondamento dos cards */
-}
-```
+---
 
-Trocar a identidade visual inteira é questão de mudar esses valores — nada precisa ser caçado pelo resto do arquivo.
+## 13. Conclusão
 
-## Convenções
+A Central de Solicitações constitui uma proposta de painel administrativo para gestão de demandas urbanas, empregando tecnologias web modernas para proporcionar uma visualização clara e eficiente das informações operacionais. A solução demonstra a aplicabilidade de HTML5 e CSS3 na construção de interfaces administrativas responsivas e escaláveis, servindo como base para futuras integrações com bancos de dados, APIs e módulos de inteligência analítica.
 
-- **Classes de cor por variante.** Componentes que mudam só de cor usam uma classe modificadora: `.kpi.azul`, `.kpi.vermelho`, `.dot.laranja`, `.tag.urg`. A estrutura é a mesma; a variante só troca a cor.
-- **Larguras de barra por classe.** As barras de progresso (`.f1`–`.f4`) e as colunas do gráfico (`.b1`–`.b6`) têm a altura/largura fixada por classe, em vez de estilo inline, pra manter o HTML limpo.
-- **Layout em flex e grid.** A casca (`.app`) é flex; os blocos de cartões (`.kpi-grid`, `.grid-main`, `.analise-body`) são grid. Cada um tem seu próprio `@media` de quebra.
-- **Sem !important.** A especificidade é mantida baixa e previsível, então qualquer ajuste pontual sobrescreve sem brigar.
+---
 
-## Onde mexer para tarefas comuns
+### Autor
 
-- **Mudar uma cor do tema** → seção 1, bloco `:root`.
-- **Editar o menu lateral** → `index.html` (lista `.nav`) + seção 3 do CSS.
-- **Ajustar os números dos KPIs** → direto no `index.html`, dentro de `.kpi-value`.
-- **Alterar a altura das colunas do gráfico** → classes `.b1`–`.b6` na seção 7.
-- **Ponto de quebra mobile** → seção 9 (`@media`).
-
-## Notas
-
-- Os ícones são caracteres unicode/emoji usados como placeholder. Para produção, troque por uma biblioteca de ícones SVG (Lucide, Font Awesome).
-- Os dados são estáticos no HTML. Para torná-los dinâmicos, alimente os elementos via JavaScript/API.
+Projeto acadêmico desenvolvido para fins de estudo e demonstração de conceitos relacionados ao desenvolvimento de interfaces web administrativas, visualização de dados e sistemas de gestão pública.
